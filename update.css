@@ -1,0 +1,70 @@
+form{
+    padding: 20px;
+}
+.flexcontainer {
+    padding:20px;
+    display: flex;
+    /* text-align: right; */
+    flex-flow: row wrap; /* Items flow horizontally and wrap to the next row */
+    justify-content: space-between; /* Distribute items evenly along the main axis */
+}
+
+.flex-item {
+    width: calc(50% - 10px); /* Each item takes up 50% of the container width with a gap of 10px */
+    margin-bottom: 10px; /* Add margin between items */
+}
+.ht {
+    text-align: left;
+
+    width: 63%;
+  
+}
+/* Label styles */
+.flexcontainer .flex-item label {display: inline-block; 
+
+    width: 150px;
+    text-align: left;
+    font-weight: bold;
+    margin-left: 0;
+    /* Remove grid-column property */
+}
+
+/* Input styles */
+.flex-item input[type="text"],.flex-item input[type="datetime"],.flex-item input[type="date"],.flex-item input[type="number"]
+,.flex-item select,.flex-item input[list="productNames"]{
+    text-align: left;
+    display: inline-block; 
+    width: 60%; /* Adjust width to accommodate padding */
+    padding: 8px; /* Reduce padding */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    margin-left: 10px;
+    /* Remove grid-column property */
+    margin-top: 10px; /* Add margin to separate inputs */
+
+}
+.button-container  input[type="submit"] {
+    width: 10%;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: none;
+    padding: 6px 4px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 10px 2px;
+    border-radius: 4px;
+    
+}
+.button-container {
+    text-align:right; /* Align the button container to the left */
+    padding:10px 40px;
+}
+
+.button-container input[type="submit"]:hover {
+    background-color: #45a049;
+}

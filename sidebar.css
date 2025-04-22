@@ -1,0 +1,91 @@
+/* Default styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.sidebar {
+    height: calc(100% - 60px); /* Adjust based on the height of your navbar */
+    width: 180px;
+    margin-left: 0px;
+    position: fixed;
+    top: 50px; /* Adjust based on the height of your navbar */
+     /* Hide the sidebar by default */
+    background-color: #111;
+    padding-top: 20px;
+    transition: transform 0.3s ease;
+    z-index: 1; /* Ensure the sidebar is above other elements */
+    overflow-y: auto; /* Add scroll if content exceeds the sidebar height */
+}
+
+.sidebar a, .dropdown-btn {
+font-size: 14px;
+    padding: 12px;
+    text-decoration: none;
+    color: white;
+      display: block;
+  border: none;
+  background: none;
+
+}
+
+.sidebar a:hover{
+    /* background-color: #555; */
+    color:rgb(71, 71, 188);
+    border: 1px solid rgb(71, 71, 188);
+ 
+}
+.dropdown-btn:hover{
+    border: 1px solid rgb(71, 71, 188);
+
+    padding-right: 100%;
+ 
+}
+.sidebar a:focus {
+    color:white;
+    border: 1px solid rgb(71, 71, 188);
+    /* background-color: rgb(215, 188, 137); */
+}
+.sidebar a.active {
+    background-color: rgb(71, 71, 188); /* Change this to the color you want for active links */
+}
+
+
+.dropdown-container {
+    display: none;
+    background-color: #262626;
+    
+width: 100%;
+
+  }
+  .dropdown-container a{
+    font-size: 12px;
+    padding-left: 25px;
+    color: rgb(198, 200, 200);
+
+  }
+  .sidebar a.active {
+    background-color: rgb(71, 71, 188); /* Change this to the color you want for active links */
+}
+
+/* Media query for smaller screens */
+
+@media screen and (max-width: 768px) {
+
+    .sidebar {
+     
+        display: none;
+        flex-direction: column;
+        background-color: #111;
+ 
+    }
+
+    .sidebar.show {
+        display: block;
+        height: (100%-50px);
+    }
+
+  
+ 
+}
+

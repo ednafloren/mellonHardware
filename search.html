@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search</title>
+    <style>
+        .suggestions-dropdown {
+            border: 1px solid #ccc;
+            max-height: 200px;
+            overflow-y: auto;
+            position: absolute;
+            background-color: rgb(200, 74, 74);
+            z-index: 1000;
+            width: 500px;
+        }
+        .suggestion-item {
+            padding: 8px;
+            cursor: pointer;
+        }
+        .suggestion-item:hover {
+            background-color: #d61212;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <input type="text" id="search-input" placeholder="Search..." autocomplete="off">
+    <div id="suggestions" class="suggestions-dropdown"></div>
+
+    <script>
+        $(document).ready(function() {
+            $('#search-input').on('input', function() {
+                let query = $(this).val();
+                if (query.length > 2) {
+                    $.ajax({
+                        url: 'search_suggestions.php',
+                        type: 'GET',
+                        data: { keywords: query },
+                        success: function(data) {
+                            let suggestions = JSON.parse(data);
+                            $('#suggestions').empty();
+                            suggestions.forEach(function(suggestion) {
+                                let link = '';
+                                switch (suggestion.type) {
+                                    case 'orders':
+                                        link = 'order.php?id=' + encodeURIComponent(suggestion.id);
+                                        break;
+                                    case 'sales':
+                                        link = 'sales2.php?id=' + encodeURIComponent(suggestion.id);
+                                        break;
+                                    case 'purchase':
+                                        link = 'purchases.php?id=' + encodeURIComponent(suggestion.id);
+                                        break;
+                                    default:
+                                        link = '#';
+                                        break;
+                                }
+                                $('#suggestions').append('<div class="suggestion-item" data-link="' + link + '">' +
+                                    'Type: ' + suggestion.type + ', ID: ' + suggestion.id + ', ' +
+                                    'Field: ' + suggestion.search_field + ', ' +
+                                    'Customer: ' + suggestion.customer + ', ' +
+                                    'Product: ' + suggestion.product +
+                                    '</div>');
+                            });
+                        }
+                    });
+                } else {
+                    $('#suggestions').empty();
+                }
+            });
+
+            $(document).on('click', '.suggestion-item', function() {
+                let link = $(this).data('link');
+                window.location.href = link + '&query=' + encodeURIComponent($('#search-input').val());
+            });
+
+            // Close the suggestions dropdown when clicking outside
+            $(document).click(function(event) { 
+                if(!$(event.target).closest('#search-input').length && !$(event.target).closest('#suggestions').length) {
+                    if($('#suggestions').is(":visible")) {
+                        $('#suggestions').empty();
+                    }
+                }        
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+/* Default styles */
+.footer {
+    background-color: rgb(43, 37, 37);
+    color: white;
+    padding: 10px;
+    position: fixed; /* or position: absolute; */
+    bottom: 0;
+ 
+    width: 100%;
+
+
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.copyright {
+    text-align: center;
+}
+
+.dateTime {
+    text-align: right;
+}
+
+/* Media query for smaller screens */
+@media screen and (max-width: 768px) {
+    .footer {
+               /* position: relative; */
+                /* Change position to relative for smaller screens */
+ 
+    }
+
+    .copyright, .dateTime {
+        text-align: center; /* Center-align the copyright and datetime on smaller screens */
+        font-size: 14px; /* Adjust font size for better readability */
+        padding: 5px 0; /* Add padding to create space around the text */
+    }
+}

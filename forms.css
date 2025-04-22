@@ -1,0 +1,80 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(233, 230, 230);
+}
+
+.main {
+    background-color: white;
+    padding: 20%;
+    width: 500px;
+}
+
+.loginheading {
+    text-align: center;
+    font-weight: bolder;
+    font-family:  'Lato', sans-serif;
+}
+
+.error {
+    color: red;
+}
+
+.loginform .loginbtn,
+input {
+    width: 100%;
+    padding: 4%;
+    box-sizing: border-box;
+    border-radius: 4px;
+    outline: none;
+}
+
+
+.loginbtn {
+    background-color: rgb(75, 75, 249);
+    border: none;
+    color: white;
+    padding: 50px;
+    font-size: 18px;
+}
+
+
+.loginform input[type="email"],
+.loginform input[type="text"],
+.loginform input[type="password"]{
+    border:1px solid black;
+    outline: none;
+}
+/* Ensure input:focus rule has sufficient specificity */
+.loginform input[type="email"]:focus,
+.loginform input[type="text"]:focus,
+.loginform input[type="password"]:focus {
+    border:1px solid rgb(75, 75, 249);
+    outline: none;
+   
+}
+.error-input{
+    
+    color: red;
+    
+    }
+        input[type="text"].error-input,
+     input[type="email"].error-input,
+ 
+input[type="password"].error-input {
+    border:1px solid red;
+    }
+.redirect{
+    text-align: center;
+}
+.redirect a{
+    text-decoration: none;
+}
+   
+
+
+  
+

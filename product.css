@@ -1,0 +1,18 @@
+.add {
+    display: inline-block;
+    background-color: #4086bc; /* Green */
+    border: none;
+    color: white;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+  
+    font-size: 12px;
+    margin: 4px 5px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.add:hover {
+    background-color: #45a049; /* Darker green */
+}

@@ -1,0 +1,46 @@
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.col1 {
+    width: calc(70% - 40px); /* Adjusted width to account for padding */
+    float: left;
+    padding: 20px;
+    margin-right: 20px; /* Add some margin to separate from sidebar */
+    box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+.card1 {
+    background-color: #f7f7f7;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+label {
+    display: inline-block;
+    width: 150px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+input[type="text"],
+input[type="submit"] {
+    width: calc(100% - 160px);
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}

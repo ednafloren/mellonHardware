@@ -1,0 +1,119 @@
+
+    /* General styling */
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 20px;
+    }
+    h1, h2 {
+        text-align: center;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+    table, th, td {
+        border: 1px solid #ccc;
+    }
+    th, td {
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    .details-table {
+        width: 70%;
+        border-collapse: collapse;
+        margin-top: 10px;
+       
+        margin: auto;
+        /* Styles for details table */
+        border: 2px solid #ddd; /* Example border style */
+        background-color: #f9f9f9; /* Example background color */
+    }
+    .details-table th, .details-table td {
+        padding: 4px;
+        text-align: left;
+        border: 1px solid #ddd; /* Example border style */
+    }
+    .details-table th {
+        background-color: #f2f2f2;
+    }
+
+    .details {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+ .overall-total  {
+   margin-left: 80%;
+       
+    }
+
+    /* Hide "View Details" buttons on print */
+    .details-button {
+        display: inline-block;
+        padding: 5px 10px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+    .details-button:hover {
+        background-color: #45a049;
+    }
+
+    
+
+        .right-section {
+            display: flex;
+            justify-content: flex-end; /* Aligns the elements to the right */
+            align-items: center; /* Aligns the items vertically */
+            gap: 10px; /* Space between formrep and printrep */
+        }
+
+        .formrep,
+        .printrep {
+            flex: 0 0 auto; /* Prevent the items from stretching */
+            margin: 0; /* Ensure no margins are causing misalignment */
+        }
+
+        /* Example additional styling */
+        .formrep, .printrep {
+            /* background-color: #f1f1f1; */
+            padding: 10px;
+            box-sizing: border-box; /* Include padding in element's total width and height */
+        }
+
+    @media print {
+        .details-button,.details,.p-button,.inputform,
+        .sidebar,.navbar,.footer {
+            display: none;
+           
+        }
+        .title{
+            color:blue;
+            display: none; 
+        }
+        /* Hide specific elements on print */
+
+        body{
+            font-size: 12px;
+        }
+        .details-table th, .details-table td {
+            padding: 2px;
+     
+        }
+        .overall-total  {
+            margin-left: 70%;
+                
+             }
+             .container{
+                margin-left: 0px;
+             }
+    }
+
+
+    

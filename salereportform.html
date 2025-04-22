@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Report</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>Sales Report</h1>
+    <form action="sales_report.php" method="post">
+        <label for="report_type">Report Type:</label>
+        <select name="report_type" id="report_type">
+            <option value="daily">Daily</option>
+            <option value="date">Specific Date</option>
+            <option value="monthly">Monthly</option>
+            <option value="annually">Annually</option>
+        </select>
+        
+        <div id="date_selection">
+            <label for="date">Select Date:</label>
+            <input type="date" name="date" id="date">
+        </div>
+        
+        <div id="month_selection">
+            <label for="month">Select Month:</label>
+            <input type="month" name="month" id="month">
+        </div>
+
+        <div id="year_selection">
+            <label for="year">Select Year:</label>
+            <input type="number" name="year" id="year" min="2000" max="2100">
+        </div>
+
+        <input type="submit" value="Generate Report">
+    </form>
+
+    <h1>Purchase Report</h1>
+    <form action="purchasesreport.php" method="post">
+        <label for="report_type">Report Type:</label>
+        <select name="report_type" id="report_type2">
+            <option value="daily">Daily</option>
+            <option value="date">Specific Date</option>
+            <option value="monthly">Monthly</option>
+            <option value="annually">Annually</option>
+        </select>
+        
+        <div id="date_selection2">
+            <label for="date">Select Date:</label>
+            <input type="date" name="date" id="date2">
+        </div>
+        
+        <div id="month_selection2">
+            <label for="month">Select Month:</label>
+            <input type="month" name="month" id="month2">
+        </div>
+
+        <div id="year_selection2">
+            <label for="year">Select Year:</label>
+            <input type="number" name="year" id="year2" min="2000" max="2100">
+        </div>
+
+        <input type="submit" value="Generate Report">
+    </form>
+
+</form>
+
+<h1>Purc Report</h1>
+<form action="orderpurchasereports.php" method="post">
+    <label for="report_type">Report Type:</label>
+    <select name="report_type" id="report_type3">
+        <option value="daily">Daily</option>
+        <option value="date">Specific Date</option>
+        <option value="monthly">Monthly</option>
+        <option value="annually">Annually</option>
+    </select>
+    
+    <div id="date_selection3">
+        <label for="date">Select Date:</label>
+        <input type="date" name="date" id="date3">
+    </div>
+    
+    <div id="month_selection3">
+        <label for="month">Select Month:</label>
+        <input type="month" name="month" id="month3">
+    </div>
+
+    <div id="year_selection3">
+        <label for="year">Select Year:</label>
+        <input type="number" name="year" id="year3" min="2000" max="2100">
+    </div>
+
+    <input type="submit" value="Generate Report">
+</form>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var currentYear = new Date().getFullYear();
+            var currentMonth = new Date().toISOString().slice(0, 7); // YYYY-MM format
+
+            document.getElementById("year").value = currentYear;
+            document.getElementById("year3").value = currentYear;
+            document.getElementById("year2").value = currentYear;
+            document.getElementById("month").value = currentMonth;
+            document.getElementById("month2").value = currentMonth;
+            document.getElementById("month3").value = currentMonth;
+
+            function handleReportTypeChange(reportTypeElement, dateSelection, monthSelection, yearSelection) {
+                var type = reportTypeElement.value;
+                dateSelection.style.display = type === 'date' ? 'block' : 'none';
+                monthSelection.style.display = type === 'monthly' ? 'block' : 'none';
+                yearSelection.style.display = type === 'annually' ? 'block' : 'none';
+            }
+
+            document.getElementById('report_type').addEventListener('change', function() {
+                handleReportTypeChange(this, document.getElementById('date_selection'), document.getElementById('month_selection'), document.getElementById('year_selection'));
+            });
+
+            document.getElementById('report_type2').addEventListener('change', function() {
+                handleReportTypeChange(this, document.getElementById('date_selection2'), document.getElementById('month_selection2'), document.getElementById('year_selection2'));
+            });
+            document.getElementById('report_type3').addEventListener('change', function() {
+                handleReportTypeChange(this, document.getElementById('date_selection3'), document.getElementById('month_selection3'), document.getElementById('year_selection3'));
+            });
+            // Trigger the change event to set the initial visibility
+            document.getElementById('report_type').dispatchEvent(new Event('change'));
+            document.getElementById('report_type2').dispatchEvent(new Event('change'));
+            document.getElementById('report_type3').dispatchEvent(new Event('change'));
+        });
+    </script>
+</body>
+</html>
